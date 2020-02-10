@@ -1,9 +1,0 @@
-spring:
-  application:
-    name: nacos-config
-  cloud:
-    nacos:
-      config:
-        server-addr: "nacos.server.local.xyz:8484"
-        group: DEV
-        file-extension: yaml

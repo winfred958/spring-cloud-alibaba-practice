@@ -10,16 +10,27 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>nacos-config</module>
+        <module>auth-service</module>
+        <module>order-center</module>
     </modules>
 
     <properties>
-        <java.verion>1.8</java.verion>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <scala.version>2.12.8</scala.version>
+
+        <!--plugins-->
+        <maven-compiler-plugin.version>3.6.2</maven-compiler-plugin.version>
+        <scala-maven-plugin.version>3.4.6</scala-maven-plugin.version>
+        <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+        <maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
+
+        <!-- spring -->
         <spring-boot.version>2.2.2.RELEASE</spring-boot.version>
         <spring-cloud-dependencies.version>Hoxton.SR1</spring-cloud-dependencies.version>
         <spring-cloud-alibaba-dependencies.version>2.2.0.RELEASE</spring-cloud-alibaba-dependencies.version>
 
-        <maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -58,6 +69,16 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>

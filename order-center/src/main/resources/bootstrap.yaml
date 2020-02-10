@@ -1,0 +1,9 @@
+server:
+  port: 18083
+spring:
+  application:
+    name: order-center
+  cloud:
+    nacos:
+      discovery:
+        server-addr: "nacos.server.local.xyz:8484"
