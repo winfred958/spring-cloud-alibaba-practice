@@ -2,7 +2,7 @@ server:
   port: 18083
 spring:
   application:
-    name: order-center
+    name: order-service
   cloud:
     nacos:
       discovery:

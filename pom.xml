@@ -10,8 +10,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>auth-service</module>
-        <module>order-center</module>
+        <module>auth</module>
+        <module>order</module>
+        <module>gateway</module>
     </modules>
 
     <properties>
@@ -50,7 +51,7 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>org.springframework.cloud</groupId>
+                <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
                 <version>${spring-cloud-alibaba-dependencies.version}</version>
                 <type>pom</type>
