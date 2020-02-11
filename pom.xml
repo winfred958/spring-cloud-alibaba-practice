@@ -13,6 +13,7 @@
         <module>auth</module>
         <module>order</module>
         <module>gateway</module>
+        <module>core</module>
     </modules>
 
     <properties>

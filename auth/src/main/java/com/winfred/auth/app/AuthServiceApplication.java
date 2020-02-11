@@ -1,4 +1,4 @@
-package com.winfred.nacos.config.app;
+package com.winfred.auth.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
