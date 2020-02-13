@@ -10,4 +10,6 @@ spring:
         server-addr: "nacos.server.local.xyz:8484"
         group: base
         file-extension: yaml
+      discovery:
+        server-addr: "nacos.server.local.xyz:8484"
 
