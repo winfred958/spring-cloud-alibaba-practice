@@ -3,6 +3,9 @@ package com.winfred.auth.service;
 import com.winfred.auth.entity.UserInfo;
 import com.winfred.auth.entity.response.TokenResponse;
 
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  * 主要功能:
  * 1. 颁发Token: 根据 user 信息, 生成Token
@@ -47,4 +50,21 @@ public interface AuthToken {
     Boolean verifyToken(String token);
 
 
+    default Date getIssuedTime() {
+        return Calendar
+                .getInstance()
+                .getTime()
+                ;
+    }
+
+    default Date getNotBeforeTime() {
+        return getIssuedTime();
+    }
+
+
+    default Date getExpireTime(int hour) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.HOUR, hour);
+        return calendar.getTime();
+    }
 }

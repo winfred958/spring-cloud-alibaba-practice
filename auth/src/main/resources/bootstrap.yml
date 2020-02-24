@@ -7,9 +7,9 @@ spring:
     nacos:
       config:
         namespace: DEV
-        server-addr: "nacos.server.local.xyz:8484"
+        server-addr: "nacos.server.local.xyz:8848"
         group: base
         file-extension: yaml
       discovery:
-        server-addr: "nacos.server.local.xyz:8484"
+        server-addr: "nacos.server.local.xyz:8848"
 

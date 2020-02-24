@@ -12,18 +12,18 @@ import org.springframework.stereotype.Service;
 
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
-import java.util.Calendar;
 
 @Service
 public class AuthTokenImpl implements AuthToken {
 
     @Value(value = "${spring.application.name}")
-    private String application_name;
+    private String APPLICATION_NAME;
 
     @Override
     public UserInfo authentication(UserInfo userInfo) {
         /**
-         * 1. 查询DB或调用user-service, 获取用户信息
+         * 1. 查询DB或调用user-service, 获取用户信息&权限
+         * 2. 设置 authentication 标识位
          */
         return null;
     }
@@ -39,9 +39,10 @@ public class AuthTokenImpl implements AuthToken {
 
         JWTCreator.Builder jwtBuilder = JWT.create();
         jwtBuilder
-                .withIssuer(application_name)// 颁发者
-                .withIssuedAt(Calendar.getInstance().getTime())
-                .withNotBefore(Calendar.getInstance().getTime())
+                .withIssuer(APPLICATION_NAME)// 颁发者
+                .withIssuedAt(getIssuedTime())
+                .withNotBefore(getNotBeforeTime())
+                .withExpiresAt(getExpireTime(1))
         ;
 
         String token = jwtBuilder.sign(Algorithm.RSA256(gerRSAKeyProvider()));
@@ -57,6 +58,7 @@ public class AuthTokenImpl implements AuthToken {
 
     @Override
     public Boolean verifyToken(String token) {
+
         return null;
     }
 

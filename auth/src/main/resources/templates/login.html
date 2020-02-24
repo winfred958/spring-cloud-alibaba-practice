@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<span th:text="${testEntity.name}"></span>
+<span th:text="${testEntity.message}"></span>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div>
+    <form th:method="post" action="#" th:action="@{/login/login}">
+        <div>
+            <div>
+                <label for="user-name-label">
+                    用户名: <input id="user-name-label" type="text" name="userName" value=""/>
+                </label>
+            </div>
+            <div>
+                <label for="password-label">
+                    密码: <input id="password-label" type="password" name="password" value=""/>
+                </label>
+            </div>
+            <button type="submit">登录</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
