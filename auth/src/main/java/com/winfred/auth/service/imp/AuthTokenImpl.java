@@ -31,7 +31,7 @@ public class AuthTokenImpl implements AuthToken {
     @Override
     public TokenResponse getAuthorizationToken(UserInfo userInfo) {
         UserInfo authenticationUser = authentication(userInfo);
-        if (null == authenticationUser || !authenticationUser.getAuthentication()) {
+        if (null == authenticationUser || !authenticationUser.getAuthenticated()) {
             // 没有通过认证
             return null;
         }

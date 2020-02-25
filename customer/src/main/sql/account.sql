@@ -1,6 +1,6 @@
 CREATE TABLE account
 (
-    id               BIGINT(20),
+    id               BIGINT(20) AUTO_INCREMENT,
     email            VARCHAR(255),
     phone_number     VARCHAR(255),
     password_hash    VARCHAR(255),

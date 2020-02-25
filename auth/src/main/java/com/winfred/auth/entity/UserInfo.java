@@ -19,5 +19,5 @@ public class UserInfo {
     /**
      * 是否认证成功
      */
-    private Boolean authentication;
+    private Boolean authenticated;
 }
