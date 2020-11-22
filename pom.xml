@@ -31,9 +31,9 @@
     <maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
 
     <!-- spring -->
-    <spring-boot.version>2.2.2.RELEASE</spring-boot.version>
-    <spring-cloud-dependencies.version>Hoxton.SR1</spring-cloud-dependencies.version>
-    <spring-cloud-alibaba-dependencies.version>2.2.0.RELEASE</spring-cloud-alibaba-dependencies.version>
+    <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
+    <spring-cloud-dependencies.version>Hoxton.SR5</spring-cloud-dependencies.version>
+    <spring-cloud-alibaba-dependencies.version>2.2.3.RELEASE</spring-cloud-alibaba-dependencies.version>
 
     <!-- jwt -->
     <java-jwt.version>3.8.3</java-jwt.version>
