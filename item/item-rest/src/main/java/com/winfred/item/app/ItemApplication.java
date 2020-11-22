@@ -8,8 +8,9 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@RefreshScope
 @ComponentScan(value = {
+        "com.winfred.item.config",
+        "com.winfred.item.service",
         "com.winfred.item.rest"
 })
 public class ItemApplication {

@@ -8,10 +8,14 @@ spring:
   cloud:
     nacos:
       config:
-        namespace: DEV
+        namespace: 33c18b1f-56d4-4efc-820b-e34b6afd8f27
         server-addr: "nacos.server.local.xyz:8848"
-        group: base
         file-extension: yaml
         max-retry: 5
+        group: DEV_GROUP
       discovery:
+        namespace: 33c18b1f-56d4-4efc-820b-e34b6afd8f27
         server-addr: "nacos.server.local.xyz:8848"
+        group: DEV_GROUP
+
+
