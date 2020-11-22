@@ -10,6 +10,14 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>item</artifactId>
+  <packaging>pom</packaging>
+  <modules>
+    <module>item-common</module>
+    <module>item-api</module>
+    <module>item-service</module>
+    <module>item-rest</module>
+    <module>item-pojo</module>
+  </modules>
 
 
 </project>

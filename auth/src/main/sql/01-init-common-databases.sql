@@ -95,7 +95,8 @@ CREATE TABLE IF NOT EXISTS `user`.`role_permission`
     `update_timestamp`    bigint          DEFAULT NULL,
     PRIMARY KEY (`id`),
     KEY `idx_role_id` (`role_id`) USING BTREE,
-    KEY `idx_permission_id` (`permission_id`) USING BTREE
+    KEY `idx_permission_id` (`permission_id`) USING BTREE,
+    KEY `idx_permission_strategy` (`permission_strategy`) USING BTREE
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_general_ci COMMENT ='组&权限关系';

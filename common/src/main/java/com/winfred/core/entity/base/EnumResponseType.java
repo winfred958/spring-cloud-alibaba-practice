@@ -13,20 +13,12 @@ public enum EnumResponseType {
   /**
    * 默认返回
    */
-  DEFAULT_ERROR(999, "error", "defalut error"),
+  DEFAULT_ERROR(-1, "error", "unknown error"),
 
   /**
-   *
+   * 权限错误
    */
-  REFRESH_LOCAL_CACHE_ERROR(5001, "refresh local cache error", "刷新本地缓存失败, 销量top"),
-  /**
-   *
-   */
-  REFRESH_ALS_CACHE_ERROR(5002, "refresh als cache error", "刷新als redis 缓存失败"),
-  /**
-   *
-   */
-  REFRESH_ALS_CACHE_OK(0, "refresh als cache success", "刷新als redis 缓存成功"),
+  PERMISSION_ERROR(4001, "error", "permission error"),
   ;
 
   EnumResponseType(Integer code, String message, String describe) {
