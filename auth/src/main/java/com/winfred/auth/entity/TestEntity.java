@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class TestEntity {
 
-    private String name;
-    private String message;
+  private String name;
+  private String message;
 }

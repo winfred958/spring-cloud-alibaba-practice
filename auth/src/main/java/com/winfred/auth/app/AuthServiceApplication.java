@@ -13,8 +13,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 )
 //@EnableDiscoveryClient
 public class AuthServiceApplication {
-    public static void main(String[] args) {
-        SpringApplication springApplication = new SpringApplication(AuthServiceApplication.class);
-        springApplication.run(args);
-    }
+  public static void main(String[] args) {
+    SpringApplication springApplication = new SpringApplication(AuthServiceApplication.class);
+    springApplication.run(args);
+  }
 }

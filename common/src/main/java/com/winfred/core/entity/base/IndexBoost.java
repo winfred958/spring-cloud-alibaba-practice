@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class IndexBoost {
 
-    private String indexName;
-    private Float boost;
+  private String indexName;
+  private Float boost;
 }

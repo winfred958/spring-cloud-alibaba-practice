@@ -17,33 +17,33 @@ import java.util.Map;
 @RequestMapping(value = "/login")
 public class LoginController {
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public String toLoginPage(HttpServletRequest request, HttpServletResponse response, Map<String, Object> parameter) {
-        TestEntity testEntity = new TestEntity();
-        testEntity.setName("啦啦啦");
-        testEntity.setMessage("请登录");
+  @RequestMapping(value = "/test", method = RequestMethod.GET)
+  public String toLoginPage(HttpServletRequest request, HttpServletResponse response, Map<String, Object> parameter) {
+    TestEntity testEntity = new TestEntity();
+    testEntity.setName("啦啦啦");
+    testEntity.setMessage("请登录");
 
-        parameter.put("testEntity", testEntity);
+    parameter.put("testEntity", testEntity);
 
-        parameter.put("userInfo", new UserInfo());
-        return "login.html";
-    }
+    parameter.put("userInfo", new UserInfo());
+    return "login.html";
+  }
 
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String login(
-            HttpServletRequest request,
-            HttpServletResponse response,
-            @Valid UserInfo userInfo,
-            Model model
-    ) {
+  @RequestMapping(value = "/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+  public String login(
+          HttpServletRequest request,
+          HttpServletResponse response,
+          @Valid UserInfo userInfo,
+          Model model
+  ) {
 
-        TestEntity testEntity = new TestEntity();
-        testEntity.setName(userInfo.getUserName());
-        testEntity.setMessage("你好呀");
+    TestEntity testEntity = new TestEntity();
+    testEntity.setName(userInfo.getUserName());
+    testEntity.setMessage("你好呀");
 
-        model.addAttribute("testEntity", testEntity);
+    model.addAttribute("testEntity", testEntity);
 
-        return "loginSuccess.html";
-    }
+    return "loginSuccess.html";
+  }
 }
