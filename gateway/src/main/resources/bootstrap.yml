@@ -20,5 +20,6 @@ spring:
         namespace: 33c18b1f-56d4-4efc-820b-e34b6afd8f27
         server-addr: "nacos.server.local.xyz:8848"
         group: DEV_GROUP
+        nacos-properties:
 #logging:
 #  level: debug

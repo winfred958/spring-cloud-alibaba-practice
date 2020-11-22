@@ -9,7 +9,8 @@ services:
       - ../mysql/data:/var/lib/mysql
       - ../config/my.conf:/etc/mysql/conf.d/my.conf
     ports:
-      - "13306:13306"
+      - "13306:3306"
+    restart: on-failure
   redis-local:
     container_name: redis-local
     image: redis:latest
@@ -17,5 +18,6 @@ services:
       - ../config/redis.conf:/etc/redis/redis.conf
     ports:
       - "7000:7000"
+    restart: on-failure
 
 
