@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  mysql-local:
+    container_name: mysql-local
+    image: mysql:latest
+    env_file:
+      - ../env/mysql.env
+    volumes:
+      - ../mysql/data:/var/lib/mysql
+      - ../config/my.conf:/etc/mysql/conf.d/my.conf
+    ports:
+      - "13306:13306"
+  redis-local:
+    container_name: redis-local
+    image: redis:latest
+    volumes:
+      - ../config/redis.conf:/etc/redis/redis.conf
+    ports:
+      - "7000:7000"
+
+
