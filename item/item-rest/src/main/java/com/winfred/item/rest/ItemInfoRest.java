@@ -1,6 +1,6 @@
 package com.winfred.item.rest;
 
-import com.winfred.core.entity.base.BaseResponse;
+import com.winfred.common.entity.base.BaseResponse;
 import com.winfred.item.api.ItemInfoApi;
 import com.winfred.item.entity.ItemInfo;
 import com.winfred.item.service.ItemService;
@@ -15,18 +15,18 @@ import java.util.List;
 @Slf4j
 public class ItemInfoRest implements ItemInfoApi {
 
-  @Autowired
-  private ItemService itemService;
+    @Autowired
+    private ItemService itemService;
 
-  @Override
-  public BaseResponse<ItemInfo> getItemInfo(@PathVariable(value = "item_sn") String itemSn) {
-    ItemInfo item = itemService.getItem(itemSn);
-    return BaseResponse.success(item);
-  }
+    @Override
+    public BaseResponse<ItemInfo> getItemInfo(@PathVariable(value = "item_sn") String itemSn) {
+        ItemInfo item = itemService.getItem(itemSn);
+        return BaseResponse.success(item);
+    }
 
-  @Override
-  public BaseResponse<List<ItemInfo>> getItemList(@PathVariable(value = "max") Integer max) {
-    List<ItemInfo> itemInfos = itemService.mockItemList(max);
-    return BaseResponse.success(itemInfos);
-  }
+    @Override
+    public BaseResponse<List<ItemInfo>> getItemList(@PathVariable(value = "max") Integer max) {
+        List<ItemInfo> itemInfos = itemService.mockItemList(max);
+        return BaseResponse.success(itemInfos);
+    }
 }

@@ -16,70 +16,70 @@ import java.security.interfaces.RSAPublicKey;
 @Service
 public class AuthTokenImpl implements AuthToken {
 
-  @Value(value = "${spring.application.name}")
-  private String APPLICATION_NAME;
+    @Value(value = "${spring.application.name}")
+    private String APPLICATION_NAME;
 
-  @Override
-  public UserInfo authentication(UserInfo userInfo) {
-    /**
-     * 1. 查询DB或调用user-service, 获取用户信息&权限
-     * 2. 设置 authentication 标识位
-     */
-    return null;
-  }
-
-  @Override
-  public TokenResponse getAuthorizationToken(UserInfo userInfo) {
-    UserInfo authenticationUser = authentication(userInfo);
-    if (null == authenticationUser || !authenticationUser.getAuthenticated()) {
-      // 没有通过认证
-      return null;
+    @Override
+    public UserInfo authentication(UserInfo userInfo) {
+        /**
+         * 1. 查询DB或调用user-service, 获取用户信息&权限
+         * 2. 设置 authentication 标识位
+         */
+        return null;
     }
-    String userId = userInfo.getUserId();
 
-    JWTCreator.Builder jwtBuilder = JWT.create();
-    jwtBuilder
-            .withIssuer(APPLICATION_NAME)// 颁发者
-            .withIssuedAt(getIssuedTime())
-            .withNotBefore(getNotBeforeTime())
-            .withExpiresAt(getExpireTime(1))
-    ;
+    @Override
+    public TokenResponse getAuthorizationToken(UserInfo userInfo) {
+        UserInfo authenticationUser = authentication(userInfo);
+        if (null == authenticationUser || !authenticationUser.getAuthenticated()) {
+            // 没有通过认证
+            return null;
+        }
+        String userId = userInfo.getUserId();
 
-    String token = jwtBuilder.sign(Algorithm.RSA256(gerRSAKeyProvider()));
+        JWTCreator.Builder jwtBuilder = JWT.create();
+        jwtBuilder
+                .withIssuer(APPLICATION_NAME)// 颁发者
+                .withIssuedAt(getIssuedTime())
+                .withNotBefore(getNotBeforeTime())
+                .withExpiresAt(getExpireTime(1))
+        ;
 
-
-    return new TokenResponse(token, "");
-  }
-
-  @Override
-  public TokenResponse refreshToken(TokenResponse tokenResponse) {
-    return null;
-  }
-
-  @Override
-  public Boolean verifyToken(String token) {
-
-    return null;
-  }
+        String token = jwtBuilder.sign(Algorithm.RSA256(gerRSAKeyProvider()));
 
 
-  private RSAKeyProvider gerRSAKeyProvider() {
-    RSAKeyProvider rsaKeyProvider = new RSAKeyProvider() {
-      @Override
-      public RSAPublicKey getPublicKeyById(String keyId) {
+        return new TokenResponse(token, "");
+    }
+
+    @Override
+    public TokenResponse refreshToken(TokenResponse tokenResponse) {
         return null;
-      }
+    }
 
-      @Override
-      public RSAPrivateKey getPrivateKey() {
-        return null;
-      }
+    @Override
+    public Boolean verifyToken(String token) {
 
-      @Override
-      public String getPrivateKeyId() {
         return null;
-      }
-    };
-    return rsaKeyProvider;
-  }
+    }
+
+
+    private RSAKeyProvider gerRSAKeyProvider() {
+        RSAKeyProvider rsaKeyProvider = new RSAKeyProvider() {
+            @Override
+            public RSAPublicKey getPublicKeyById(String keyId) {
+                return null;
+            }
+
+            @Override
+            public RSAPrivateKey getPrivateKey() {
+                return null;
+            }
+
+            @Override
+            public String getPrivateKeyId() {
+                return null;
+            }
+        };
+        return rsaKeyProvider;
+    }
 }

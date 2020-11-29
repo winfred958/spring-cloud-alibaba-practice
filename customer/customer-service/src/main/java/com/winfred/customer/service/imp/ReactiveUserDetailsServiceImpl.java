@@ -8,9 +8,9 @@ import reactor.core.publisher.Mono;
 @Service
 public class ReactiveUserDetailsServiceImpl implements ReactiveUserDetailsService {
 
-  @Override
-  public Mono<UserDetails> findByUsername(String username) {
+    @Override
+    public Mono<UserDetails> findByUsername(String username) {
 
-    return null;
-  }
+        return null;
+    }
 }

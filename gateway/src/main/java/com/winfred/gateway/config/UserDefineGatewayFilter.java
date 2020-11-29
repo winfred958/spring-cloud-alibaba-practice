@@ -17,27 +17,27 @@ import java.net.URI;
 @Slf4j
 public class UserDefineGatewayFilter {
 
-  /**
-   * echo took
-   *
-   * @return
-   */
-  @Bean
-  @Order(Ordered.HIGHEST_PRECEDENCE)
-  public GlobalFilter echoTookFilter() {
-    return new GlobalFilter() {
-      @Override
-      public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        URI uri = exchange.getRequest().getURI();
-        long start = System.currentTimeMillis();
-        return chain
-                .filter(exchange)
-                .then(Mono.fromRunnable(() -> {
-                  long end = System.currentTimeMillis();
-                  log.info("request took {} => rui  {}", end - start, uri);
-                }));
-      }
-    };
-  }
+    /**
+     * echo took
+     *
+     * @return
+     */
+    @Bean
+    @Order(Ordered.HIGHEST_PRECEDENCE)
+    public GlobalFilter echoTookFilter() {
+        return new GlobalFilter() {
+            @Override
+            public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+                URI uri = exchange.getRequest().getURI();
+                long start = System.currentTimeMillis();
+                return chain
+                        .filter(exchange)
+                        .then(Mono.fromRunnable(() -> {
+                            long end = System.currentTimeMillis();
+                            log.info("request took {} => rui  {}", end - start, uri);
+                        }));
+            }
+        };
+    }
 
 }

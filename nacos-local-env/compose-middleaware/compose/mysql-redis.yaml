@@ -3,6 +3,8 @@ services:
   mysql-local:
     container_name: mysql-local
     image: mysql:latest
+    deploy:
+      replicas: 1
     env_file:
       - ../env/mysql.env
     volumes:
@@ -13,8 +15,17 @@ services:
     restart: on-failure
   redis-local:
     container_name: redis-local
-    command: redis-server /etc/redis/redis.conf
+    command: ["redis-server", "/etc/redis/redis.conf"]
     image: redis:latest
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
     volumes:
       - ../config/redis.conf:/etc/redis/redis.conf
     ports:

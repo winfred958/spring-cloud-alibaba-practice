@@ -13,58 +13,58 @@ import java.util.Date;
  */
 public interface AuthToken {
 
-  /**
-   * authentication(认证):
-   * 身份验证: 证明请求者身份, 需要提供密码, 验证码, 或生物识别码
-   *
-   * @param userInfo
-   * @return
-   */
-  UserInfo authentication(UserInfo userInfo);
+    /**
+     * authentication(认证):
+     * 身份验证: 证明请求者身份, 需要提供密码, 验证码, 或生物识别码
+     *
+     * @param userInfo
+     * @return
+     */
+    UserInfo authentication(UserInfo userInfo);
 
-  /**
-   * authorization(授权):
-   * 为了获得授权, 经过认证后获得token, 这个token就是authorization授权.
-   * <p>
-   * client 端, token 需要放在header请求中
-   *
-   * @param userInfo
-   * @return
-   */
-  TokenResponse getAuthorizationToken(UserInfo userInfo);
+    /**
+     * authorization(授权):
+     * 为了获得授权, 经过认证后获得token, 这个token就是authorization授权.
+     * <p>
+     * client 端, token 需要放在header请求中
+     *
+     * @param userInfo
+     * @return
+     */
+    TokenResponse getAuthorizationToken(UserInfo userInfo);
 
-  /**
-   * refresh token
-   *
-   * @param tokenResponse
-   * @return
-   */
-  TokenResponse refreshToken(TokenResponse tokenResponse);
+    /**
+     * refresh token
+     *
+     * @param tokenResponse
+     * @return
+     */
+    TokenResponse refreshToken(TokenResponse tokenResponse);
 
-  /**
-   * verifier token
-   *
-   * @param token
-   * @return
-   */
-  Boolean verifyToken(String token);
-
-
-  default Date getIssuedTime() {
-    return Calendar
-            .getInstance()
-            .getTime()
-            ;
-  }
-
-  default Date getNotBeforeTime() {
-    return getIssuedTime();
-  }
+    /**
+     * verifier token
+     *
+     * @param token
+     * @return
+     */
+    Boolean verifyToken(String token);
 
 
-  default Date getExpireTime(int hour) {
-    Calendar calendar = Calendar.getInstance();
-    calendar.add(Calendar.HOUR, hour);
-    return calendar.getTime();
-  }
+    default Date getIssuedTime() {
+        return Calendar
+                .getInstance()
+                .getTime()
+                ;
+    }
+
+    default Date getNotBeforeTime() {
+        return getIssuedTime();
+    }
+
+
+    default Date getExpireTime(int hour) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.HOUR, hour);
+        return calendar.getTime();
+    }
 }

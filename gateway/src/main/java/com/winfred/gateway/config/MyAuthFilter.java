@@ -18,18 +18,18 @@ import reactor.core.publisher.Mono;
 @Slf4j
 public class MyAuthFilter {
 
-  @Bean
-  @Order(Ordered.HIGHEST_PRECEDENCE + 1)
-  public GlobalFilter cookiesFilter() {
-    return new GlobalFilter() {
-      @Override
-      public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        MultiValueMap<String, HttpCookie> cookies = exchange.getRequest().getCookies();
-        log.info("cookies.size = {}", cookies.size());
+    @Bean
+    @Order(Ordered.HIGHEST_PRECEDENCE + 1)
+    public GlobalFilter cookiesFilter() {
+        return new GlobalFilter() {
+            @Override
+            public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+                MultiValueMap<String, HttpCookie> cookies = exchange.getRequest().getCookies();
+                log.info("cookies.size = {}", cookies.size());
 
-        return chain
-                .filter(exchange);
-      }
-    };
-  }
+                return chain
+                        .filter(exchange);
+            }
+        };
+    }
 }
