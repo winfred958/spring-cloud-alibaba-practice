@@ -2,9 +2,9 @@ package com.winfred.common.global.constant;
 
 public enum AuthConstant {
     /**
-     * dev
+     * token name
      */
-    TOKEN_NAME("___token", "token名称"),
+    TOKEN_NAME("user_token", "token名称"),
 
     ;
 

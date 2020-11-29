@@ -2,7 +2,7 @@ package com.winfred.auth.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-//import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication(
         scanBasePackages = {
@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
                 "com.winfred.auth.controller"
         }
 )
-//@EnableDiscoveryClient
+@EnableDiscoveryClient
 public class AuthServiceApplication {
     public static void main(String[] args) {
         SpringApplication springApplication = new SpringApplication(AuthServiceApplication.class);
