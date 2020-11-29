@@ -1,14 +1,12 @@
-package com.winfred.auth.entity;
+package com.winfred.auth.entity.request;
 
 import lombok.Data;
 
 
 @Data
-public class UserInfo {
+public class LoginInfo {
 
     private String userId;
-
-    private String userName;
 
     private String password;
 
@@ -17,4 +15,6 @@ public class UserInfo {
      * 是否认证成功
      */
     private Boolean authenticated;
+
+    private String redirectUrl;
 }

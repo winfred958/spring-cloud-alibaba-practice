@@ -17,7 +17,8 @@ public class GlobalExceptionTranslator {
     @ExceptionHandler(value = {
             NullPointerException.class
     })
-    public BaseResponse handlerServiceException() {
+    public BaseResponse handlerServiceException(NullPointerException e) {
+        log.error("", e);
         return BaseResponse.send(EnumResponseType.DEFAULT_ERROR);
     }
 
@@ -25,7 +26,8 @@ public class GlobalExceptionTranslator {
     @ExceptionHandler(value = {
             Throwable.class
     })
-    public BaseResponse handlerXXXException() {
+    public BaseResponse handlerXXXException(Throwable e) {
+        log.error("", e);
         return BaseResponse.send(EnumResponseType.DEFAULT_ERROR);
     }
 }

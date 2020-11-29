@@ -1,12 +1,16 @@
 package com.winfred.auth.service.imp;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.RSAKeyProvider;
-import com.winfred.auth.entity.UserInfo;
+import com.winfred.auth.entity.request.LoginInfo;
+import com.winfred.auth.entity.response.ResponseUserInfo;
 import com.winfred.auth.entity.response.TokenResponse;
 import com.winfred.auth.service.AuthToken;
+import com.winfred.common.global.constant.JWTConstant;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -19,23 +23,29 @@ public class AuthTokenImpl implements AuthToken {
     @Value(value = "${spring.application.name}")
     private String APPLICATION_NAME;
 
+    @Value(value = "${default.redirect.url:xxxxxx}")
+    private String DEFAULT_REDIRECT_URL;
+
+    /**
+     * 1. 查询DB或调用user-service, 获取用户信息&角色
+     * 2. 设置 authentication 标识位
+     */
     @Override
-    public UserInfo authentication(UserInfo userInfo) {
-        /**
-         * 1. 查询DB或调用user-service, 获取用户信息&权限
-         * 2. 设置 authentication 标识位
-         */
+    public ResponseUserInfo authentication(LoginInfo loginInfo) {
+
         return null;
     }
 
     @Override
-    public TokenResponse getAuthorizationToken(UserInfo userInfo) {
-        UserInfo authenticationUser = authentication(userInfo);
+    public TokenResponse getAuthorizationToken(LoginInfo loginInfo) {
+        TokenResponse tokenResponse;
+        ResponseUserInfo authenticationUser = authentication(loginInfo);
+        tokenResponse = new TokenResponse();
         if (null == authenticationUser || !authenticationUser.getAuthenticated()) {
             // 没有通过认证
-            return null;
+            tokenResponse.setRedirectUrl(DEFAULT_REDIRECT_URL);
+            return tokenResponse;
         }
-        String userId = userInfo.getUserId();
 
         JWTCreator.Builder jwtBuilder = JWT.create();
         jwtBuilder
@@ -45,10 +55,18 @@ public class AuthTokenImpl implements AuthToken {
                 .withExpiresAt(getExpireTime(1))
         ;
 
+        // 增加业务数据
+        jwtBuilder.withClaim(JWTConstant.USER_ID.getName(), authenticationUser.getUserId());
+        jwtBuilder.withClaim(JWTConstant.NICKNAME.getName(), authenticationUser.getNickname());
+        jwtBuilder.withClaim(JWTConstant.ROLES.getName(), JSON.toJSONString(authenticationUser.getRoles(), SerializerFeature.SortField));
+        jwtBuilder.withClaim(JWTConstant.AUTHENTICATED.getName(), authenticationUser.getAuthenticated());
+
         String token = jwtBuilder.sign(Algorithm.RSA256(gerRSAKeyProvider()));
 
+        tokenResponse.setToken(token);
+        tokenResponse.setRedirectUrl(loginInfo.getRedirectUrl());
 
-        return new TokenResponse(token, "");
+        return tokenResponse;
     }
 
     @Override

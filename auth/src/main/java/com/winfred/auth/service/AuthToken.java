@@ -1,6 +1,7 @@
 package com.winfred.auth.service;
 
-import com.winfred.auth.entity.UserInfo;
+import com.winfred.auth.entity.request.LoginInfo;
+import com.winfred.auth.entity.response.ResponseUserInfo;
 import com.winfred.auth.entity.response.TokenResponse;
 
 import java.util.Calendar;
@@ -20,7 +21,7 @@ public interface AuthToken {
      * @param userInfo
      * @return
      */
-    UserInfo authentication(UserInfo userInfo);
+    ResponseUserInfo authentication(LoginInfo userInfo);
 
     /**
      * authorization(授权):
@@ -31,7 +32,7 @@ public interface AuthToken {
      * @param userInfo
      * @return
      */
-    TokenResponse getAuthorizationToken(UserInfo userInfo);
+    TokenResponse getAuthorizationToken(LoginInfo userInfo);
 
     /**
      * refresh token
@@ -49,7 +50,11 @@ public interface AuthToken {
      */
     Boolean verifyToken(String token);
 
-
+    /**
+     * 颁发 token 时间
+     *
+     * @return
+     */
     default Date getIssuedTime() {
         return Calendar
                 .getInstance()
