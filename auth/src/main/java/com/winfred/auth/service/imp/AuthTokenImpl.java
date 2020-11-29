@@ -23,7 +23,7 @@ public class AuthTokenImpl implements AuthToken {
     @Value(value = "${spring.application.name}")
     private String APPLICATION_NAME;
 
-    @Value(value = "${default.redirect.url:xxxxxx}")
+    @Value(value = "${default.auth.redirect.url:xxxxxx}")
     private String DEFAULT_REDIRECT_URL;
 
     /**

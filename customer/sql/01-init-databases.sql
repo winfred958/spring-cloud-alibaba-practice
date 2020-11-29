@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `user`.`role_info`
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
-  COLLATE = utf8mb4_general_ci COMMENT ='用户所属组关系';
+  COLLATE = utf8mb4_general_ci COMMENT ='角色';
 
 CREATE TABLE IF NOT EXISTS `user`.`group_role`
 (
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `user`.`group_role`
     KEY `idx_role_id` (`role_id`) USING BTREE
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
-  COLLATE = utf8mb4_general_ci COMMENT ='用户所属组关系';
+  COLLATE = utf8mb4_general_ci COMMENT ='用户所属组&角色关系';
 
 
 CREATE TABLE IF NOT EXISTS `user`.`permission_info`
@@ -99,4 +99,4 @@ CREATE TABLE IF NOT EXISTS `user`.`role_permission`
     KEY `idx_permission_strategy` (`permission_strategy`) USING BTREE
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
-  COLLATE = utf8mb4_general_ci COMMENT ='组&权限关系';
+  COLLATE = utf8mb4_general_ci COMMENT ='角色&权限关系';

@@ -1,7 +1,7 @@
 package com.winfred.auth.controller;
 
-import com.winfred.auth.entity.request.LoginInfo;
 import com.winfred.auth.entity.TestEntity;
+import com.winfred.auth.entity.request.LoginInfo;
 import com.winfred.auth.entity.response.TokenResponse;
 import com.winfred.auth.service.AuthToken;
 import com.winfred.common.global.constant.AuthConstant;
@@ -44,11 +44,11 @@ public class LoginController {
     public String login(
             HttpServletRequest request,
             HttpServletResponse response,
-            @RequestBody LoginInfo userInfo,
+            @RequestBody LoginInfo loginInfo,
             Model model
     ) {
         // 认证
-        TokenResponse authorizationToken = authToken.getAuthorizationToken(userInfo);
+        TokenResponse authorizationToken = authToken.getAuthorizationToken(loginInfo);
         String token = authorizationToken.getToken();
 
         // FIXME: 登陆成功设置 cookie
@@ -61,7 +61,7 @@ public class LoginController {
         response.addCookie(cookie);
 
         TestEntity testEntity = new TestEntity();
-        testEntity.setName(userInfo.getUserName());
+        testEntity.setName(loginInfo.getUserName());
         testEntity.setMessage("你好呀");
 
         model.addAttribute("testEntity", testEntity);

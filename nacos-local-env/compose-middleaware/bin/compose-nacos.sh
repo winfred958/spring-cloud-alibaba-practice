@@ -8,4 +8,4 @@ HOME_PATH=$(
 
 cd "${HOME_PATH}/compose"
 
-docker-compose -f mysql-redis-elasticsearch.yaml up -d
+docker-compose -f mysql-redis.yaml start

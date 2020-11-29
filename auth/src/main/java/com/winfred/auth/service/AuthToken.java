@@ -18,10 +18,10 @@ public interface AuthToken {
      * authentication(认证):
      * 身份验证: 证明请求者身份, 需要提供密码, 验证码, 或生物识别码
      *
-     * @param userInfo
+     * @param loginInfo
      * @return
      */
-    ResponseUserInfo authentication(LoginInfo userInfo);
+    ResponseUserInfo authentication(LoginInfo loginInfo);
 
     /**
      * authorization(授权):
@@ -29,10 +29,10 @@ public interface AuthToken {
      * <p>
      * client 端, token 需要放在header请求中
      *
-     * @param userInfo
+     * @param loginInfo
      * @return
      */
-    TokenResponse getAuthorizationToken(LoginInfo userInfo);
+    TokenResponse getAuthorizationToken(LoginInfo loginInfo);
 
     /**
      * refresh token

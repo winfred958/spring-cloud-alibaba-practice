@@ -8,4 +8,4 @@ HOME_PATH=$(
 
 cd "${HOME_PATH}/compose"
 
-docker-compose -f standalone-mysql-5.7.yaml up -d
+docker-compose -f nacos-standalone-mysql-5.7.yaml start
