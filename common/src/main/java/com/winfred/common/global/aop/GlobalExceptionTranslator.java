@@ -1,4 +1,4 @@
-package com.winfred.common.global.exception;
+package com.winfred.common.global.aop;
 
 
 import com.winfred.common.entity.base.BaseResponse;
