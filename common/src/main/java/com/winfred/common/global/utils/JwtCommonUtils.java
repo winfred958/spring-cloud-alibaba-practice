@@ -6,4 +6,9 @@ public class JwtCommonUtils {
     /**
      * token validation
      */
+
+    public static boolean verifyToken(String token) {
+
+        return true;
+    }
 }

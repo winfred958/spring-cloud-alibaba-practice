@@ -37,5 +37,11 @@
       <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
     </dependency>
 
+    <!-- https://github.com/alibaba/spring-cloud-alibaba/wiki/Sentinel -->
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+    </dependency>
+
   </dependencies>
 </project>

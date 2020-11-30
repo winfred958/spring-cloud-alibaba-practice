@@ -31,8 +31,9 @@
     <maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
 
     <!-- spring -->
-    <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
-    <spring-cloud-dependencies.version>Hoxton.SR5</spring-cloud-dependencies.version>
+    <spring-cloud-dependencies.version>Hoxton.SR8</spring-cloud-dependencies.version>
+    <spring-cloud.version>2.2.5.RELEASE</spring-cloud.version>
+    <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
     <spring-cloud-alibaba-dependencies.version>2.2.3.RELEASE</spring-cloud-alibaba-dependencies.version>
 
     <!-- jwt -->
@@ -90,6 +91,18 @@
           </exclusion>
         </exclusions>
       </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-openfeign</artifactId>
+        <version>${spring-cloud.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-undertow</artifactId>
