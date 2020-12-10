@@ -22,7 +22,7 @@
   - systemctl restart docker
 ### 4.docker compose nacos server
 - 运行 nacos-server
-  - cd ${PROJECT_HOME}/nacos-test-env/
+  - cd ${PROJECT_HOME}/local-test-env/
   - docker-compose -f compose-nacos/standalone-mysql-5.7.yaml start
 
 ## 使用的组件介绍

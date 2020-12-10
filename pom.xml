@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.winfred.spring.cloud</groupId>
-  <artifactId>spring-cloud-nacos</artifactId>
+  <artifactId>spring-cloud-alibaba-practice</artifactId>
   <version>1.0.0</version>
   <packaging>pom</packaging>
 
@@ -16,6 +16,7 @@
     <module>common</module>
     <module>customer</module>
     <module>item</module>
+    <module>code-generator</module>
   </modules>
 
   <properties>
