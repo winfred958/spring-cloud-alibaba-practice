@@ -32,4 +32,14 @@
 - 配置中心, 提供可视化的配置, client端有刷新配置功能
 #### 1.2 [sentinel](https://github.com/alibaba/Sentinel)
 - 把流量作为切入点，从流量控制、熔断降级、系统负载保护等多个维度保护服务的稳定性.
+#### 1.3  soul 业务网关
 
+## 其他
+### 代码自动生成
+- 模块名: code-generator
+- 代码自动生成相关配置
+    - [Constant](code-generator/src/main/java/com/winfred/dataworks/general/Constant.java)
+- 代码生成模板配置(不会经常变更)
+    - [templates](code-generator/src/main/resources/templates)
+- 生成代码
+    - 运行 [CodeGeneral](code-generator/src/main/java/com/winfred/dataworks/general/CodeGeneral.java)

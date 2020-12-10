@@ -11,7 +11,7 @@ public class CodeGeneral {
     
     public static void main(String[] args) {
     
-        String MODULE_NAME = "dataworks-generator";
+        String MODULE_NAME = "code-generator";
         String OUTPUT_DIR = "src/main/java";
         
         AutoGenerator generator = new AutoGenerator();
