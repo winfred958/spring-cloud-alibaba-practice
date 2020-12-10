@@ -1,9 +1,9 @@
 package ${package.Controller};
 
-
 import org.springframework.web.bind.annotation.RequestMapping;
 
 <#if restControllerStyle>
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 <#else>
 import org.springframework.stereotype.Controller;
@@ -21,6 +21,7 @@ import ${superControllerClassPackage};
  * @since ${date}
  */
 <#if restControllerStyle>
+@Slf4j
 @RestController
 <#else>
 @Controller

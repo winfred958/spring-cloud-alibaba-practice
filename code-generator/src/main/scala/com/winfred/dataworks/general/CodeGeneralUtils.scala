@@ -10,7 +10,7 @@ object CodeGeneralUtils {
   def getGlobalConfig(moduleName: String, dir: String = "src/marin/java"): GlobalConfig = {
     val globalConfig = new GlobalConfig()
     globalConfig
-      .setOutputDir(s"${System.getProperty("user.dir")}/${moduleName}/${dir}")
+      .setOutputDir(s"${System.getProperty("user.dir")}/$moduleName/$dir")
       .setAuthor("winfred958")
       .setOpen(false)
       .setFileOverride(true)
@@ -31,14 +31,16 @@ object CodeGeneralUtils {
     val strategyConfig = new StrategyConfig()
     strategyConfig
       .setNaming(NamingStrategy.underline_to_camel)
-      .setEntityLombokModel(true)
-      .setSkipView(true)
       .setColumnNaming(NamingStrategy.underline_to_camel)
+      .setRestControllerStyle(true) // RestController模式
+      .setEntityLombokModel(true) // lombok 模式
+      .setSkipView(true)
 
   }
 
   def getTemplateConfig: TemplateConfig = {
     val templateConfig = new TemplateConfig()
-    templateConfig.setXml(s"/templates/mapper.xml")
+    templateConfig
+      .setXml(s"/templates/mapper.xml")
   }
 }
