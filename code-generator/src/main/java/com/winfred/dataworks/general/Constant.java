@@ -16,6 +16,8 @@ public interface Constant {
     String PACKAGE_PATH = "com.winfred.dataworks";
     String SUB_PACKAGE_PATH = "code";
     
+    String DEFAULT_PACKAGE_NAME_MAPPER = "dao";
+    String DEFAULT_PACKAGE_NAME_XML = "dao.xml";
     String DEFAULT_PACKAGE_NAME_SERVICE = "service";
     String DEFAULT_PACKAGE_NAME_SERVICE_IMPL = "service.impl";
     String DEFAULT_PACKAGE_NAME_CONTROLLER = "controller";

@@ -69,9 +69,9 @@
         (
         <#list table.fields as field>
             <#if field_index == 0>
-        <#noparse>'#{</#noparse>${field.propertyName}<#noparse>}'</#noparse>
+        <#noparse>'#{item.</#noparse>${field.propertyName}<#noparse>}'</#noparse>
             <#else>
-        <#noparse>,'#{</#noparse>${field.propertyName}<#noparse>}'</#noparse>
+        <#noparse>,'#{item.</#noparse>${field.propertyName}<#noparse>}'</#noparse>
             </#if>
         </#list>
         )
@@ -93,9 +93,9 @@
             (
             <#list table.fields as field>
                  <#if field_index == 0>
-            <#noparse>'#{</#noparse>${field.propertyName}<#noparse>}'</#noparse>
+            <#noparse>'#{item.</#noparse>${field.propertyName}<#noparse>}'</#noparse>
                  <#else>
-            <#noparse>,'#{</#noparse>${field.propertyName}<#noparse>}'</#noparse>
+            <#noparse>,'#{item.</#noparse>${field.propertyName}<#noparse>}'</#noparse>
                 </#if>
             </#list>
             )

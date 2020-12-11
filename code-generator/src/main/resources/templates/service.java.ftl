@@ -24,5 +24,7 @@ public interface ${table.serviceName} {
     List<${entity}> queryByEntity(${entity} entity);
 
     Integer insert(${entity} entity);
+
+    Integer bulkUpsert(List<#noparse><? extends</#noparse> ${entity}<#noparse>></#noparse> list);
 }
 </#if>

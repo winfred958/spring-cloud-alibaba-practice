@@ -58,6 +58,8 @@ public class CodeGeneral {
         return new PackageConfig()
                 .setParent(Constant.PACKAGE_PATH)
                 .setModuleName(Constant.SUB_PACKAGE_PATH)
+                .setMapper(Constant.DEFAULT_PACKAGE_NAME_MAPPER)
+                .setXml(Constant.DEFAULT_PACKAGE_NAME_XML)
                 .setService(Constant.DEFAULT_PACKAGE_NAME_SERVICE)
                 .setServiceImpl(Constant.DEFAULT_PACKAGE_NAME_SERVICE_IMPL)
                 .setController(Constant.DEFAULT_PACKAGE_NAME_CONTROLLER)
