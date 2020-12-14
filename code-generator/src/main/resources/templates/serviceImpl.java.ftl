@@ -36,8 +36,8 @@ public class ${table.serviceImplName} implements ${table.serviceName} {
     }
 
     @Override
-    public Integer insert(${entity} entity) {
-        return dao.insert(entity);
+    public Integer save(${entity} entity) {
+        return dao.save(entity);
     }
 
     @Override

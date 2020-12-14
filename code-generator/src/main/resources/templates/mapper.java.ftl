@@ -26,7 +26,7 @@ public interface ${table.mapperName} {
 
     List<${entity}> queryByEntity(${entity} entity);
 
-    Integer insert(${entity} entity);
+    Integer save(${entity} entity);
 
     Integer bulkUpsert(@Param(value = "items") List<#noparse><? extends</#noparse> ${entity}<#noparse>></#noparse> list);
 }

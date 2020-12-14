@@ -49,13 +49,13 @@
         <where>
             <#list table.fields as field>
             <if test="${field.propertyName} != null and ${field.propertyName} != ''">
-                AND `${field.columnName}` = <#noparse>'#{</#noparse>${field.propertyName}<#noparse>}'</#noparse>
+                AND `${field.columnName}` = <#noparse>#{</#noparse>${field.propertyName}<#noparse>}</#noparse>
             </if>
             </#list>
         </where>
     </select>
 
-    <insert id="insert" parameterType="${package.Entity}.${entity}">
+    <insert id="save" parameterType="${package.Entity}.${entity}">
         INSERT INTO `${table.name}`
         (
         <#list table.fields as field>
@@ -69,9 +69,9 @@
         (
         <#list table.fields as field>
             <#if field_index == 0>
-        <#noparse>'#{item.</#noparse>${field.propertyName}<#noparse>}'</#noparse>
+        <#noparse>#{</#noparse>${field.propertyName}<#noparse>}</#noparse>
             <#else>
-        <#noparse>,'#{item.</#noparse>${field.propertyName}<#noparse>}'</#noparse>
+        <#noparse>,#{</#noparse>${field.propertyName}<#noparse>}</#noparse>
             </#if>
         </#list>
         )
@@ -82,9 +82,9 @@
         (
         <#list table.fields as field>
             <#if field_index == 0>
-        `${field.columnName}`
+        ${field.columnName}
             <#else>
-        ,`${field.columnName}`
+        ,${field.columnName}
             </#if>
         </#list>
         )
@@ -93,9 +93,9 @@
             (
             <#list table.fields as field>
                  <#if field_index == 0>
-            <#noparse>'#{item.</#noparse>${field.propertyName}<#noparse>}'</#noparse>
+            <#noparse>#{item.</#noparse>${field.propertyName}<#noparse>}</#noparse>
                  <#else>
-            <#noparse>,'#{item.</#noparse>${field.propertyName}<#noparse>}'</#noparse>
+            <#noparse>,#{item.</#noparse>${field.propertyName}<#noparse>}</#noparse>
                 </#if>
             </#list>
             )

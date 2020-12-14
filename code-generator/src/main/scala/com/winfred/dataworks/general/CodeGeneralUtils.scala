@@ -14,7 +14,7 @@ object CodeGeneralUtils {
       .setAuthor("winfred958")
       .setOpen(false)
       .setFileOverride(true)
-      .setEnableCache(true)
+      .setEnableCache(false)
       .setSwagger2(true)
       .setEntityName("%sEntity")
       .setMapperName("%sDao")
