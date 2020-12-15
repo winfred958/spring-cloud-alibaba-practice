@@ -22,7 +22,7 @@ object CodeGeneralUtils {
       .setServiceName("%sService")
       .setServiceImplName("%sServiceImpl")
       .setIdType(IdType.NONE)
-      .setBaseColumnList(false)
+      .setBaseColumnList(true)
       .setBaseResultMap(true)
 
   }
