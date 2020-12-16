@@ -15,7 +15,7 @@ services:
     restart: on-failure
   redis-local:
     container_name: redis-local
-    command: ["redis-server", "/etc/redis/redis.conf"]
+    command: [ "redis-server", "/etc/redis/redis.conf" ]
     image: redis:latest
     deploy:
       replicas: 1

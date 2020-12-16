@@ -15,3 +15,6 @@ spring:
         server-addr: "nacos.server.local.xyz:8848"
         group: DEV_GROUP
 
+arthas:
+  agent-id: ${spring.application.name}
+  tunnel-server: ws://127.0.0.1:7777/ws
