@@ -12,14 +12,14 @@
     - 略
 - vim /etc/docker/daemon.json
     - ```json
-    {
-      "registry-mirrors": [
-        "https://registry.docker-cn.com",
-        "https://docker.mirrors.ustc.edu.cn",
-        "http://hub-mirror.c.163.com",
-        "https://cr.console.aliyun.com/"
-      ]
-    }
+  {
+  "registry-mirrors": [
+  "https://registry.docker-cn.com",
+  "https://docker.mirrors.ustc.edu.cn",
+  "http://hub-mirror.c.163.com",
+  "https://cr.console.aliyun.com/"
+  ]
+  }
     ```
 
 ### 3.安装 docker compose
@@ -46,10 +46,13 @@
 #### 1.2 [sentinel](https://github.com/alibaba/Sentinel)
 
 - 把流量作为切入点，从流量控制、熔断降级、系统负载保护等多个维度保护服务的稳定性.
+- [spring-cloud-starter-alibaba-sentinel](https://github.com/alibaba/spring-cloud-alibaba/wiki/Sentinel)
 
-#### 1.3  soul
+#### 1.3  [soul](https://github.com/dromara/soul)
 
 - 业务网关
+
+#### 1.4 [dubbo](https://github.com/SpringCloud/spring-cloud-dubbo)
 
 ## 其他
 

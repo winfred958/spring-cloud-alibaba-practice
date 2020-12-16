@@ -2,15 +2,14 @@ CREATE DATABASE IF NOT EXISTS `user` CHARACTER SET 'utf8mb4';
 
 CREATE TABLE IF NOT EXISTS `user`.`user_info`
 (
-    `id`               bigint                                                        NOT NULL AUTO_INCREMENT,
-    `user_name`        varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户名',
-    `email`            varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'email',
-    `password`         varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '密码',
-    `is_active`        int(1)                                                        NOT NULL DEFAULT 0 COMMENT '是否激活, 0:未激活, 1:激活',
-    `create_timestamp` bigint                                                        NOT NULL,
-    `crate_datetime`   datetime                                                      NOT NULL COMMENT '创建时间(注册时间)',
-    `update_timestamp` bigint                                                        NOT NULL,
-    `update_datetime`  datetime                                                      NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    `id`               bigint       NOT NULL AUTO_INCREMENT,
+    `user_name`        varchar(128) NOT NULL COMMENT '用户名',
+    `email`            varchar(128) NOT NULL COMMENT 'email',
+    `password`         varchar(128) NOT NULL COMMENT '密码',
+    `is_active`        int(1)       NOT NULL DEFAULT 0 COMMENT '是否激活, 0:未激活, 1:激活',
+    `create_timestamp` bigint       NOT NULL COMMENT '写入(注册)时间',
+    `active_timestamp` bigint                DEFAULT 0 COMMENT '激活时间',
+    `update_timestamp` bigint                DEFAULT 0 COMMENT '更新时间',
     PRIMARY KEY (`id`),
     UNIQUE KEY `uix_user_name` (`user_name`) USING BTREE,
     UNIQUE KEY `uix_email` (`email`) USING BTREE
@@ -21,10 +20,10 @@ CREATE TABLE IF NOT EXISTS `user`.`user_info`
 
 CREATE TABLE IF NOT EXISTS `user`.`group_info`
 (
-    `id`               int                                                           NOT NULL AUTO_INCREMENT,
-    `group_name`       varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户名',
-    `create_timestamp` bigint                                                        NOT NULL,
-    `update_timestamp` bigint DEFAULT NULL,
+    `id`               int          NOT NULL AUTO_INCREMENT,
+    `group_name`       varchar(128) NOT NULL COMMENT '组名',
+    `create_timestamp` bigint       NOT NULL,
+    `update_timestamp` bigint DEFAULT 0,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
@@ -49,13 +48,13 @@ CREATE TABLE IF NOT EXISTS `user`.`user_group`
 CREATE TABLE IF NOT EXISTS `user`.`role_info`
 (
     `id`               bigint NOT NULL AUTO_INCREMENT,
-    `role_name`        int    NOT NULL COMMENT '',
+    `role_name`        int    NOT NULL COMMENT '角色名',
     `create_timestamp` bigint NOT NULL,
     `update_timestamp` bigint DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
-  COLLATE = utf8mb4_general_ci COMMENT ='角色';
+  COLLATE = utf8mb4_general_ci COMMENT ='角色表';
 
 CREATE TABLE IF NOT EXISTS `user`.`group_role`
 (
