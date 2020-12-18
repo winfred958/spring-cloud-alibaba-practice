@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: item-service
+  profiles:
+    active: ${ACTIVE_PROFILE:dev}
   cloud:
     nacos:
       config:
