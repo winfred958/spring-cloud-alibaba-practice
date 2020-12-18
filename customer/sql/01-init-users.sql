@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS `user` CHARACTER SET 'utf8mb4';
 
 CREATE TABLE IF NOT EXISTS `user`.`user_info`
 (
-    `id`               bigint       NOT NULL AUTO_INCREMENT,
+    `id`               bigint(20)   NOT NULL AUTO_INCREMENT,
     `user_name`        varchar(128) NOT NULL COMMENT '用户名',
     `email`            varchar(128) NOT NULL COMMENT 'email',
     `password`         varchar(128) NOT NULL COMMENT '密码',
@@ -32,10 +32,10 @@ CREATE TABLE IF NOT EXISTS `user`.`group_info`
 
 CREATE TABLE IF NOT EXISTS `user`.`user_group`
 (
-    `id`               bigint NOT NULL AUTO_INCREMENT,
-    `user_id`          bigint NOT NULL COMMENT '',
-    `group_id`         int    NOT NULL COMMENT '',
-    `create_timestamp` bigint NOT NULL,
+    `id`               bigint(20) NOT NULL AUTO_INCREMENT,
+    `user_id`          bigint(20) NOT NULL COMMENT '',
+    `group_id`         int        NOT NULL COMMENT '',
+    `create_timestamp` bigint     NOT NULL,
     `update_timestamp` bigint DEFAULT NULL,
     PRIMARY KEY (`id`),
     KEY `idx_user_id` (`user_id`) USING BTREE,
@@ -47,9 +47,9 @@ CREATE TABLE IF NOT EXISTS `user`.`user_group`
 
 CREATE TABLE IF NOT EXISTS `user`.`role_info`
 (
-    `id`               bigint NOT NULL AUTO_INCREMENT,
-    `role_name`        int    NOT NULL COMMENT '角色名',
-    `create_timestamp` bigint NOT NULL,
+    `id`               bigint(20) NOT NULL AUTO_INCREMENT,
+    `role_name`        int        NOT NULL COMMENT '角色名',
+    `create_timestamp` bigint     NOT NULL,
     `update_timestamp` bigint DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
@@ -58,10 +58,10 @@ CREATE TABLE IF NOT EXISTS `user`.`role_info`
 
 CREATE TABLE IF NOT EXISTS `user`.`group_role`
 (
-    `id`               bigint NOT NULL AUTO_INCREMENT,
-    `group_id`         int    NOT NULL COMMENT '',
-    `role_id`          int    NOT NULL COMMENT '',
-    `create_timestamp` bigint NOT NULL,
+    `id`               bigint(20) NOT NULL AUTO_INCREMENT,
+    `group_id`         int        NOT NULL COMMENT '',
+    `role_id`          int        NOT NULL COMMENT '',
+    `create_timestamp` bigint     NOT NULL,
     `update_timestamp` bigint DEFAULT NULL,
     PRIMARY KEY (`id`),
     KEY `idx_group_id` (`group_id`) USING BTREE,
@@ -86,12 +86,12 @@ CREATE TABLE IF NOT EXISTS `user`.`permission_info`
 
 CREATE TABLE IF NOT EXISTS `user`.`role_permission`
 (
-    `id`                  bigint NOT NULL AUTO_INCREMENT,
-    `role_id`             int    NOT NULL COMMENT '角色id',
-    `permission_id`       int    NOT NULL COMMENT '权限id',
-    `permission_strategy` int(1) NOT NULL DEFAULT 1 COMMENT '权限策略 0: allow, 1: reject',
-    `create_timestamp`    bigint NOT NULL,
-    `update_timestamp`    bigint          DEFAULT NULL,
+    `id`                  bigint(20) NOT NULL AUTO_INCREMENT,
+    `role_id`             int        NOT NULL COMMENT '角色id',
+    `permission_id`       int        NOT NULL COMMENT '权限id',
+    `permission_strategy` int(1)     NOT NULL DEFAULT 1 COMMENT '权限策略 0: allow, 1: reject',
+    `create_timestamp`    bigint     NOT NULL,
+    `update_timestamp`    bigint              DEFAULT NULL,
     PRIMARY KEY (`id`),
     KEY `idx_role_id` (`role_id`) USING BTREE,
     KEY `idx_permission_id` (`permission_id`) USING BTREE,
