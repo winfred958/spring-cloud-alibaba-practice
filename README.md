@@ -12,15 +12,15 @@
     - 略
 - vim /etc/docker/daemon.json
     - ```json
-  {
-  "registry-mirrors": [
-  "https://registry.docker-cn.com",
-  "https://docker.mirrors.ustc.edu.cn",
-  "http://hub-mirror.c.163.com",
-  "https://cr.console.aliyun.com/"
-  ]
-  }
-    ```
+      {
+        "registry-mirrors": [
+          "https://registry.docker-cn.com",
+          "https://docker.mirrors.ustc.edu.cn",
+          "http://hub-mirror.c.163.com",
+          "https://cr.console.aliyun.com/"
+        ]
+      }
+      ```
 
 ### 3.安装 docker compose
 
