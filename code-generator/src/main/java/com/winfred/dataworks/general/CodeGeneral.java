@@ -11,27 +11,20 @@ public class CodeGeneral {
 
     public static void main(String[] args) {
 
-        String MODULE_NAME = "code-generator";
+        String MODULE_NAME = "dataworks-generator";
         String OUTPUT_DIR = "src/main/java";
 
         AutoGenerator generator = new AutoGenerator();
-
         generator.setTemplateEngine(new FreemarkerTemplateEngine());
-
-
         generator.setGlobalConfig(CodeGeneralUtils.getGlobalConfig(MODULE_NAME, OUTPUT_DIR));
 
         PackageConfig packageConfig = getPackageConfig();
         generator.setPackageInfo(packageConfig);
 
         DataSourceConfig datasourceConfig = getDataSourceConfig();
-
         generator.setDataSource(datasourceConfig);
-
         generator.setStrategy(CodeGeneralUtils.getStrategyConfig());
-
         generator.setTemplate(CodeGeneralUtils.getTemplateConfig());
-
         generator.execute();
     }
 
