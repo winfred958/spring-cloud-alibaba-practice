@@ -32,7 +32,11 @@
 
 - 运行 nacos-server
     - cd ${PROJECT_HOME}/local-test-env/
-    - docker-compose -f compose-nacos/standalone-mysql-5.7.yaml start
+    - docker-compose -f compose-nacos/standalone-mysql-5.7.yaml up
+      ```shell
+      # restart
+      docker-compose -f compose-nacos/standalone-mysql-5.7.yaml restart
+      ```
 
 ## 使用的组件介绍
 
