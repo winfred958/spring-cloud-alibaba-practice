@@ -51,6 +51,8 @@
 
 - 把流量作为切入点，从流量控制、熔断降级、系统负载保护等多个维度保护服务的稳定性.
 - [spring-cloud-starter-alibaba-sentinel](https://github.com/alibaba/spring-cloud-alibaba/wiki/Sentinel)
+- spring cloud gateway 整合
+    - [spring cloud gateway 整合文档](https://github.com/alibaba/spring-cloud-alibaba/wiki/Sentinel#spring-cloud-gateway-%E6%94%AF%E6%8C%81)
 
 #### 1.3  [soul](https://github.com/dromara/soul)
 

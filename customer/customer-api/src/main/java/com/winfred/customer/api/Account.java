@@ -1,6 +1,6 @@
 package com.winfred.customer.api;
 
-import com.winfred.core.entity.base.BaseResponse;
+import com.winfred.common.entity.base.BaseResponse;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
