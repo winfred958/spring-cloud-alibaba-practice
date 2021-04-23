@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   es01:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.12.0
     container_name: es01
     restart: on-failure
     environment:
@@ -24,7 +24,7 @@ services:
     networks:
       - elastic
   es02:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.12.0
     container_name: es02
     restart: on-failure
     environment:
@@ -40,12 +40,12 @@ services:
         hard: -1
     volumes:
       - type: volume
-        source: ../elasticsearch/data01
+        source: ../elasticsearch/data02
         target: /usr/share/elasticsearch/data
     networks:
       - elastic
   es03:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.12.0
     container_name: es03
     restart: on-failure
     environment:
@@ -61,10 +61,17 @@ services:
         hard: -1
     volumes:
       - type: volume
-        source: ../elasticsearch/data01
+        source: ../elasticsearch/data03
         target: /usr/share/elasticsearch/data
     networks:
       - elastic
+volumes:
+  data01:
+    driver: local
+  data02:
+    driver: local
+  data03:
+    driver: local
 networks:
   elastic:
     driver: bridge
