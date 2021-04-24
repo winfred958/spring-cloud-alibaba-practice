@@ -1,7 +1,8 @@
 version: "3.8"
 services:
   local-hbase:
-    image: harisekhon/hbase:2.1.3
+    image: harisekhon/hbase:2.1
+#    image: harisekhon/hbase:1.3
     container_name: local-hbase
     restart: on-failure
     ulimits:
