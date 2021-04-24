@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  local-hbase:
+    image: harisekhon/hbase:2.1.3
+    container_name: local-hbase
+    restart: on-failure
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ../hbase/data:/hbase-data
+    ports:
+      - 2181:2181
+      - 8080:8080
+      - 8085:8085
+      - 9090:9090
+      - 9095:9095
+      - 16000:16000
+      - 16010:16010
+      - 16201:16201
+      - 16301:16301
