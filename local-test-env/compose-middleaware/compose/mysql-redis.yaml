@@ -24,8 +24,12 @@ services:
           cpus: '0.50'
           memory: 512M
         reservations:
-          cpus: '0.25'
           memory: 128M
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 5s
+      timeout: 30s
+      retries: 50
     volumes:
       - ../config/redis.conf:/etc/redis/redis.conf
     ports:
