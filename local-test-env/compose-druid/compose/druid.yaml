@@ -19,19 +19,20 @@
 version: "3.8"
 
 volumes:
-  metadata_data: { }
-  middle_var: { }
-  historical_var: { }
-  broker_var: { }
-  coordinator_var: { }
-  router_var: { }
+  metadata_data: {  }
+#  middle_var: { }
+#  historical_var: { }
+#  broker_var: { }
+#  coordinator_var: { }
+#  router_var: { }
 
 services:
   druid-postgres:
     container_name: druid-postgres
-    image: postgres:latest
+    image: postgres:13
     volumes:
       - metadata_data:/var/lib/postgresql/data
+
     environment:
       - POSTGRES_PASSWORD=FoolishPassword
       - POSTGRES_USER=druid
@@ -48,8 +49,8 @@ services:
     image: apache/druid:0.21.0
     container_name: coordinator
     volumes:
-      - ./storage:/opt/data
-      - coordinator_var:/opt/druid/var
+      - ../coordinator/storage:/opt/data
+      - ../coordinator/var:/opt/druid/var
     depends_on:
       - druid-zookeeper
       - druid-postgres
@@ -58,13 +59,13 @@ services:
     command:
       - coordinator
     env_file:
-      - environment
+      - ../conf/druid.env
 
   broker:
     image: apache/druid:0.21.0
     container_name: broker
     volumes:
-      - broker_var:/opt/druid/var
+      - ../broker/var:/opt/druid/var
     depends_on:
       - druid-zookeeper
       - druid-postgres
@@ -74,14 +75,14 @@ services:
     command:
       - broker
     env_file:
-      - environment
+      - ../conf/druid.env
 
   historical:
     image: apache/druid:0.21.0
     container_name: historical
     volumes:
-      - ./storage:/opt/data
-      - historical_var:/opt/druid/var
+      - ../historical/storage:/opt/data
+      - ../historical/var:/opt/druid/var
     depends_on:
       - druid-zookeeper
       - druid-postgres
@@ -91,14 +92,14 @@ services:
     command:
       - historical
     env_file:
-      - environment
+      - ../conf/druid.env
 
   middlemanager:
     image: apache/druid:0.21.0
     container_name: middlemanager
     volumes:
-      - ./storage:/opt/data
-      - middle_var:/opt/druid/var
+      - ../middleManager/storage:/opt/data
+      - ../middleManager/var:/opt/druid/var
     depends_on:
       - druid-zookeeper
       - druid-postgres
@@ -108,13 +109,13 @@ services:
     command:
       - middleManager
     env_file:
-      - environment
+      - ../conf/druid.env
 
   router:
     image: apache/druid:0.21.0
     container_name: router
     volumes:
-      - router_var:/opt/druid/var
+      - ../router/var:/opt/druid/var
     depends_on:
       - druid-zookeeper
       - druid-postgres
@@ -124,4 +125,4 @@ services:
     command:
       - router
     env_file:
-      - environment
+      - ../conf/druid.env
