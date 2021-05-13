@@ -19,7 +19,7 @@
 version: "3.8"
 
 volumes:
-  metadata_data: {  }
+  metadata_data: { }
 #  middle_var: { }
 #  historical_var: { }
 #  broker_var: { }
