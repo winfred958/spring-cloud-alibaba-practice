@@ -16,7 +16,7 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-version: "2.2"
+version: "3.8"
 
 volumes:
   metadata_data: { }
@@ -40,7 +40,7 @@ services:
   # Need 3.5 or later for container nodes
   druid-zookeeper:
     container_name: druid-zookeeper
-    image: zookeeper:3.5
+    image: zookeeper:3.6.2
     environment:
       - ZOO_MY_ID=1
 
